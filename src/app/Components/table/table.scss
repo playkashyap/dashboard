@@ -31,6 +31,7 @@
             background: #f3f4f6;
             color: #6366f1;
             padding: 2px 8px;
+            border: 1px solid #6366f1;
             border-radius: 9999px;
             margin-left: 6px;
         }
@@ -174,20 +175,29 @@
         padding: 8px 0;
     }
 
-    .progress-bar-container {
-        background: #e5e7eb;
-        height: 6px;
-        border-radius: 8px;
-        width: 100px;
-        margin-bottom: 4px;
-        overflow: hidden;
+    .progress {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
 
-        .progress-bar-fill {
-            background: #7e3af2;
-            height: 100%;
-            transition: width 0.3s ease;
+        .progress-bar-container {
+            background: #e5e7eb;
+            height: 6px;
+            border-radius: 8px;
+            width: 100px;
+            margin-bottom: 4px;
+            overflow: hidden;
+
+            .progress-bar-fill {
+                background: #7e3af2;
+                height: 100%;
+                transition: width 0.3s ease;
+            }
         }
     }
+
+
 
     .license-label {
         font-size: 12px;

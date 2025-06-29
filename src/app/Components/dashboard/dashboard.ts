@@ -7,7 +7,7 @@ import { NgIcon, provideIcons } from '@ng-icons/core';
 import { heroChartBarSquare } from '@ng-icons/heroicons/outline';
 import { ionLayersOutline, ionSettingsOutline, ionHelpBuoyOutline } from '@ng-icons/ionicons';
 import { remixHome6Line } from '@ng-icons/remixicon';
-import { mynaSelectMultiple } from '@ng-icons/mynaui/outline';
+import { mynaSelectMultiple, mynaSearch , mynaFineTune, mynaCloudDownload} from '@ng-icons/mynaui/outline';
 import { boxPieChartAlt2, boxGroup, boxCube } from '@ng-icons/boxicons/regular';
 
 @Component({
@@ -25,7 +25,10 @@ import { boxPieChartAlt2, boxGroup, boxCube } from '@ng-icons/boxicons/regular';
       boxGroup,
       ionSettingsOutline,
       ionHelpBuoyOutline,
-      boxCube
+      boxCube,
+      mynaSearch,
+      mynaFineTune,
+      mynaCloudDownload
     }),
   ],
 })

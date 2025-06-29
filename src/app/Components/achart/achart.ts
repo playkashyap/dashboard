@@ -2,16 +2,16 @@ import { Component } from '@angular/core';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import * as Highcharts from 'highcharts';
 import { CommonModule } from '@angular/common';
-
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { heroEllipsisVertical, heroCube } from '@ng-icons/heroicons/outline';
 @Component({
   selector: 'app-achart',
-  imports: [CommonModule, HighchartsChartComponent],
+  imports: [CommonModule, HighchartsChartComponent, NgIcon],
   templateUrl: './achart.html',
   styleUrl: './achart.scss',
+  viewProviders: provideIcons({ heroEllipsisVertical, heroCube }),
 })
 export class Achart {
-
-  
   Highcharts = Highcharts;
 
   chartOptions: Highcharts.Options = {

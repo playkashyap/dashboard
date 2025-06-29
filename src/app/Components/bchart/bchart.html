@@ -4,23 +4,37 @@
             <h4>Vendors monitored</h4>
             <p>You’re using 80% of available spots.</p>
         </div>
-        <span class="trend-up">▲ 10%</span>
+
     </div>
 
-    <div class="charts">
-        <highcharts-chart [options]="chartOptions" style="width: 100%; height: auto; display: block;">
-        </highcharts-chart>
+    <div class="chart">
+
+        <div class="mainChart">
+            <div class="gauge">
+                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart"
+                    [plotOptions]="chartOptions.plotOptions" [labels]="chartOptions.labels" [fill]="chartOptions.fill">
+                </apx-chart>
+            </div>
+            <div class="percentage">
+                <ng-icon name="mynaTrendingUp"></ng-icon>
+                <span class="trend-up"> 10%</span>
+            </div>
+
+
+        </div>
+
+        <div class="warning">
+            <strong>You’ve almost reached your limit</strong>
+            <p>You have used 80% of your available spots.<br>Upgrade plan to monitor more vendors.</p>
+        </div>
     </div>
 
 
-    <div class="warning">
-        <strong>You’ve almost reached your limit</strong>
-        <p>You have used 80% of your available spots.<br>Upgrade plan to monitor more vendors.</p>
-    </div>
+
 
     <div class="footer">
         <button class="upgrade-btn">
-            <span class="material-icons">bolt</span>
+            <ng-icon name="heroBolt"></ng-icon>
             Upgrade plan
         </button>
     </div>

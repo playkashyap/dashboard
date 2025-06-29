@@ -26,46 +26,70 @@
             color: #6b7280;
         }
 
-        .trend-up {
-            font-size: 13px;
-            color: #10b981;
-            font-weight: 600;
-        }
-    }
 
-    .gauge-value {
-        font-size: 28px;
-        font-weight: bold;
-        color: #111827;
-        text-align: center;
-    }
-
-    .warning {
-        text-align: center;
-        font-size: 13px;
-        border-bottom: 1px solid #e5e7eb;
-
-        strong {
-            display: block;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 4px;
-        }
-
-        p {
-            margin: 0;
-            color: #6b7280;
-        }
     }
 
     .chart {
         padding: 20px;
         display: flex;
+        height: 300px;
+        flex-direction: column;
+        border-bottom: 1px solid #e5e7eb;
+
+        .mainChart {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .gauge {
+                width: 80%;
+            }
+
+            .percentage {
+                width: 20%;
+                display: flex;
+                text-align: center;
+
+                ng-icon {
+                    width: 20px;
+                    height: 20px;
+                    color: #10b981;
+                }
+
+                .trend-up {
+                    font-size: 15px;
+                    color: #10b981;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        .warning {
+            text-align: left;
+            font-size: 13px;
+            height: 30% !important;
+
+            strong {
+                display: block;
+                font-weight: 600;
+                color: #111827;
+                margin-bottom: 4px;
+            }
+
+            p {
+                margin: 0;
+                color: #6b7280;
+            }
+        }
     }
+
+
+
+
 
     .footer {
         display: flex;
-        justify-content: center;
+        justify-content: end;
         padding: 20px;
 
         .upgrade-btn {

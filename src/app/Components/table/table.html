@@ -68,10 +68,13 @@
 
                             <!-- Progress bar -->
                             <ng-container *ngSwitchCase="'progress'">
-                                <div class="progress-bar-container">
-                                    <div class="progress-bar-fill" [style.width.%]="row[col.column_key]"></div>
+                                <div class="progress">
+                                    <div class="progress-bar-container">
+                                        <div class="progress-bar-fill" [style.width.%]="row[col.column_key]"></div>
+                                    </div>
+                                    <span class="license-label">{{ row[col.column_key] }}%</span>
                                 </div>
-                                <span class="license-label">{{ row[col.column_key] }}%</span>
+
                             </ng-container>
 
                             <!-- Tags -->
