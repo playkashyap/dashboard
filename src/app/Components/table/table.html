@@ -12,12 +12,12 @@
                     <th *ngFor="let col of columns" [style.text-align]="col.align">
                         {{ col.column_name }}
                     </th>
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr *ngFor="let row of rows">
+                <tr class="table-row" *ngFor="let row of rows">
                     <td *ngFor="let col of columns" [style.text-align]="col.align">
                         <ng-container [ngSwitch]="col.type">
                             <!-- Name block -->
@@ -69,12 +69,12 @@
                     </td>
 
                     <!-- Actions -->
-                    <td>
+                    <td class="action-buttons">
                         <button class="icon-btn">
-                            <span class="material-icons">edit</span>
+                            <span class="material-icons" (click)="onDelete(row)">delete</span>
                         </button>
                         <button class="icon-btn">
-                            <span class="material-icons">delete</span>
+                            <span class="material-icons" (click)="onShowName(row)">edit</span>
                         </button>
                     </td>
                 </tr>
