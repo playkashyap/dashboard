@@ -27,7 +27,7 @@ export class Bchart {
   public chartOptions: RadialBarChartOptions = {
     chart: {
       type: 'radialBar',
-      height: 250,
+      height: 350,
       sparkline: { enabled: true },
     },
     plotOptions: {
@@ -43,6 +43,7 @@ export class Bchart {
           strokeWidth: '97%',
           margin: 5,
         },
+        
         dataLabels: {
           name: {
             show: false,
