@@ -1,0 +1,88 @@
+.vendor-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        border-bottom: 1px solid #e5e7eb;
+
+        h4 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+
+        p {
+            margin: 4px 0 0;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        .trend-up {
+            font-size: 13px;
+            color: #10b981;
+            font-weight: 600;
+        }
+    }
+
+    .gauge-value {
+        font-size: 28px;
+        font-weight: bold;
+        color: #111827;
+        text-align: center;
+    }
+
+    .warning {
+        text-align: center;
+        font-size: 13px;
+        border-bottom: 1px solid #e5e7eb;
+
+        strong {
+            display: block;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin: 0;
+            color: #6b7280;
+        }
+    }
+
+    .chart {
+        padding: 20px;
+        display: flex;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+
+        .upgrade-btn {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+
+            &:hover {
+                background: #f3f4f6;
+            }
+        }
+    }
+}

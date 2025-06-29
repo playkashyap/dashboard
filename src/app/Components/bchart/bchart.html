@@ -1,0 +1,27 @@
+<div class="vendor-card">
+    <div class="header">
+        <div>
+            <h4>Vendors monitored</h4>
+            <p>You’re using 80% of available spots.</p>
+        </div>
+        <span class="trend-up">▲ 10%</span>
+    </div>
+
+    <div class="charts">
+        <highcharts-chart  [options]="chartOptions" style="width: 100%; height: 180px; display: block;">
+        </highcharts-chart>
+    </div>
+
+
+    <div class="warning">
+        <strong>You’ve almost reached your limit</strong>
+        <p>You have used 80% of your available spots.<br>Upgrade plan to monitor more vendors.</p>
+    </div>
+
+    <div class="footer">
+        <button class="upgrade-btn">
+            <span class="material-icons">bolt</span>
+            Upgrade plan
+        </button>
+    </div>
+</div>
