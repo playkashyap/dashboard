@@ -1,1 +1,93 @@
-<p>table works!</p>
+<div class="team-table-card">
+    <div *ngIf="loading" class="spinner">Loading...</div>
+
+    <div *ngIf="!loading">
+        <div class="card-header">
+            <h3>Team members <span class="badge">{{rows.length}} users</span></h3>
+            <span class="material-icons menu-icon">more_vert</span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let col of columns" [style.text-align]="col.align">
+                        {{ col.column_name }}
+                    </th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let row of rows">
+                    <td *ngFor="let col of columns" [style.text-align]="col.align">
+                        <ng-container [ngSwitch]="col.type">
+                            <!-- Name block -->
+                            <ng-container *ngSwitchCase="'name'">
+                                <div class="user-cell">
+                                    <div class="avatar">
+                                        {{ row[col.column_key]?.first_name[0] }}{{ row[col.column_key]?.last_name[0] }}
+                                    </div>
+                                    <div>
+                                        <div class="full-name">
+                                            {{ row[col.column_key]?.first_name }} {{ row[col.column_key]?.last_name }}
+                                        </div>
+                                        <div class="handle">{{ row[col.column_key]?.handle }}</div>
+                                    </div>
+                                </div>
+                            </ng-container>
+
+                            <!-- Status badge -->
+                            <ng-container *ngSwitchCase="'status'">
+                                <span class="status-badge" [ngClass]="row[col.column_key]?.toLowerCase()">
+                                    {{ row[col.column_key] }}
+                                </span>
+                            </ng-container>
+
+                            <!-- Progress bar -->
+                            <ng-container *ngSwitchCase="'progress'">
+                                <div class="progress-bar-container">
+                                    <div class="progress-bar-fill" [style.width.%]="row[col.column_key]"></div>
+                                </div>
+                                <span class="license-label">{{ row[col.column_key] }}%</span>
+                            </ng-container>
+
+                            <!-- Tags -->
+                            <ng-container *ngSwitchCase="'tags'">
+                                <ng-container *ngFor="let tag of row[col.column_key]">
+                                    <span class="team-pill" [style.color]="tag.text_color"
+                                        [style.borderColor]="tag.text_color"
+                                        [style.backgroundColor]="tag.background_color">
+                                        {{ tag.value }}
+                                    </span>
+                                </ng-container>
+                            </ng-container>
+
+                            <!-- Default text -->
+                            <ng-container *ngSwitchDefault>
+                                <div class="default-text">{{ row[col.column_key] }}</div>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+
+                    <!-- Actions -->
+                    <td>
+                        <button class="icon-btn">
+                            <span class="material-icons">edit</span>
+                        </button>
+                        <button class="icon-btn">
+                            <span class="material-icons">delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button class="button-prev-next">&larr; Previous</button>
+            <div class="buttons">
+                <button class="active">1</button>
+                <button class="pagination-buttons" *ngFor="let i of [2,3,'...', 8,9,10]">{{ i }}</button>
+            </div>
+
+            <button class="button-prev-next">Next &rarr;</button>
+        </div>
+    </div>
+</div>

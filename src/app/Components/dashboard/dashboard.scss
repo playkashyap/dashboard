@@ -103,10 +103,12 @@ i.material-icons {
 
 // Main Content
 .main-content {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
+  gap: 20px;
   height: 100%;
   overflow-y: auto;
-  padding: 24px;
 
   .header-bar {
     display: flex;
@@ -168,22 +170,27 @@ i.material-icons {
   .cards-container {
     display: flex;
     flex-direction: row;
-    padding: 0 24px;
+    gap: 20px;
+    padding: 24px;
 
     .achart,
     .bchart {
       flex: 1;
-      margin: 0 12px;
+      // margin: 0 12px;
     }
 
     .achart {
       max-width: 70%;
-      height: 400px;
+      // height: 400px;
     }
 
     .bchart {
       max-width: 30%;
-      height: 400px;
+      // height: 400px;
     }
+  }
+
+  .table-container {
+    padding: 24px;
   }
 }
