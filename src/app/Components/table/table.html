@@ -9,15 +9,39 @@
         <table>
             <thead>
                 <tr>
-                    <th *ngFor="let col of columns" [style.text-align]="col.align">
-                        {{ col.column_name }}
+                    <th>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" [checked]="selectAllChecked" (change)="toggleSelectAll()" />
+                            <span></span>
+                        </label>
+                    </th>
+                    <th *ngFor="let col of columns" [style.text-align]="col.align" (click)="sortBy(col.column_key)"
+                        class="sortable-header">
+                        <div class="role-header">
+                            {{ col.column_name }}
+                            <ng-icon class="role-icon" name="heroQuestionMarkCircle"
+                                *ngIf="col.column_key == 'role' "></ng-icon>
+                        </div>
+
+
+                        <ng-icon class="icons sort-icon" *ngIf="sortColumn === col.column_key"
+                            [name]="sortDirection === 'asc' ? 'heroArrowUp' : 'heroArrowDown'"></ng-icon>
+
                     </th>
                     <th></th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr class="table-row" *ngFor="let row of rows">
+                <tr class="table-row" *ngFor="let row of rows" [ngClass]="{'selected': isChecked(row.id)}">
+                    <td>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" [checked]="isChecked(row.id)"
+                                (change)="toggleRowSelection(row.id)" />
+                            <span></span>
+                        </label>
+                    </td>
+
                     <td *ngFor="let col of columns" [style.text-align]="col.align">
                         <ng-container [ngSwitch]="col.type">
                             <!-- Name block -->
@@ -70,24 +94,24 @@
 
                     <!-- Actions -->
                     <td class="action-buttons">
-                        <button class="icon-btn">
-                            <span class="material-icons" (click)="onDelete(row)">delete</span>
+                        <button class="icon-btn" (click)="onDelete(row)">
+                            <ng-icon class="icons" name="heroTrash"></ng-icon>
                         </button>
-                        <button class="icon-btn">
-                            <span class="material-icons" (click)="onShowName(row)">edit</span>
+                        <button class="icon-btn" (click)="onShowName(row)">
+                            <ng-icon class="icons" name="heroPencil"></ng-icon>
                         </button>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div class="pagination">
-            <button class="button-prev-next">&larr; Previous</button>
+            <button class="button-prev-next"><ng-icon class="icons" name="heroArrowLeft"></ng-icon> Previous</button>
             <div class="buttons">
                 <button class="active">1</button>
                 <button class="pagination-buttons" *ngFor="let i of [2,3,'...', 8,9,10]">{{ i }}</button>
             </div>
 
-            <button class="button-prev-next">Next &rarr;</button>
+            <button class="button-prev-next">Next <ng-icon class="icons" name="heroArrowRight"></ng-icon></button>
         </div>
     </div>
 </div>
